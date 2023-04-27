@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% block title %} {{ title }} {% endblock %} 
+{% block content %} 
+<!-- класс py-5 создает отступы сверху и снизу блока --> 
+<div class="container py-5"> 
+  <h1> {{ group.title }} </h1> 
+  <p> {{ group.description }} </p> 
+  {% for post in page_obj %}
+  <article> 
+    <ul> 
+      <li> 
+        Автор: {% include 'includes/user_name.html' with user=post.author %}
+      </li> 
+      <li> 
+        Дата публикации: {{ post.pub_date|date:"d E Y" }} 
+      </li> 
+    </ul>
+    {% include 'includes/image.html' %}       
+    <p> {{ post.text }} </p> 
+    <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
+</article>  
+  {% comment %} {% include 'includes/article.html '%}  {% endcomment %}
+  {% if not forloop.last %}<hr>{% endif %}  
+  <!-- под последним постом нет линии --> 
+  {% endfor %} 
+</div> 
+  {% include 'includes/paginator.html' %}
+{% endblock%} 

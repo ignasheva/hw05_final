@@ -1,0 +1,5 @@
+{% if user.get_full_name %}
+  <a href="{% url 'posts:profile' user.username %}">{{ user.get_full_name }}</a> 
+{% else %}
+  <a href="{% url 'posts:profile' user.username %}">{{ user.username }}</a> 
+{% endif %}

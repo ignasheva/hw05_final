@@ -1,0 +1,12 @@
+<article> 
+  <ul> 
+    <li> 
+      Автор: {% include 'includes/user_name.html' with user=post.author %}
+    </li> 
+    <li> 
+      Дата публикации: {{ post.pub_date|date:"d E Y" }} 
+    </li> 
+  </ul>       
+  <p> {{ post.text }} </p> 
+  <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>  
+</article> 

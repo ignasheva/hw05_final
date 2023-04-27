@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+{% comment %} Колонки с отступом сверху и снизу {% endcomment %}
+<div class="row">
+  <h1>Вот что я умею</h1>
+  {% comment %}
+    Боковой блок со списком технологий 
+    Займет всю ширину блока на мобильном
+    и 25% при размерах экрана ≥768px
+  {% endcomment %}
+  <aside class="col-12 col-md-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Python
+      </li>
+      <li class="list-group-item">
+        Django
+      </li>
+      <li class="list-group-item">
+        OPP
+      </li>
+      <li class="list-group-item">
+        SQL
+      </li>
+      <li class="list-group-item">
+        HTML
+      </li>
+      <li class="list-group-item">
+        CSS
+      </li>
+      <li class="list-group-item">
+        GIT
+      </li>
+      <li class="list-group-item">
+        IDE
+      </li>
+    </ul>
+  </aside>
+  {% comment %}
+    Статья  
+    Займет всю ширину блока на мобильном
+    и 75% при размерах экрана ≥768px
+  {% endcomment %}
+  <article class="col-12 col-md-9">
+    <p>
+      Во время работы над проектом я применяла различные инструменты: VSCode, Git, SQLite и др..
+      Задействовала навыки работы с OOP, языком запросов SQL, HTML и CSS. <br> И, конечно же, использовала, горячо нами любимые, Python и Django.
+    </p>
+    <p>
+      За время разработки проекта, я сталкивалась с небольшими сложностями, но обычно быстро находила решение и справлялась.<br>
+      Заметила, что мне очень нравится работать с логикой. Написать модель, представление, прописать путь - все это очень интресно и увлекательно.<br>
+      Чуть меньше впечатляет работа с шаблонами. Но люблю, когда на странице все красиво отображается, поэтому стараюсь подходить ответственно и к этой части.
+    </p>
+    <p>
+      Отдельно отмечу, что неплохо помогают знания Английского языка. У меня средний уровень, но этого вполне достаточно, чтобы понимать документацию и гуглить вопросы на английском.<br>
+      Мы все прекрасно понимаем, что так больше шанс найти необходимую информацию или подсказку.
+    </p>
+  </article>
+  <div class="container" >
+    <img src="{% static 'img/about/brain.png' %}" class="brain" width="1600" height="800" alt="">
+  </div>
+</div>
+{% endblock %} 

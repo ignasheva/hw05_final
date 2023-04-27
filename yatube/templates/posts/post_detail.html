@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Пост {{post.text|truncatechars:30}} {% endblock %} 
+{% block content %} 
+<div class="row">
+  <aside class="col-12 col-md-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Дата публикации: {{ post.pub_date|date:"d E Y" }} 
+      </li>
+      <!-- если у поста есть группа -->   
+      <li class="list-group-item">
+        {% if post.group %} 
+          Группа: {{ post.group.title }}
+          <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a> 
+        {% else %}
+          Группа: Не задана
+        {% endif %} 
+      </li>
+      <li class="list-group-item">
+        Автор: {% include 'includes/user_name.html' with user=post.author %}
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        Всего постов автора:  <span class="ps-1">{{ author_posts_count }}</span>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'posts:profile' post.author.username %}">
+          все посты пользователя
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <article class="col-12 col-md-9 pt-4 ">
+    {% include 'includes/image.html' %} 
+    <p>
+      {{ post.text }}
+    </p>
+    <a class="btn btn-primary" href="{% url 'posts:post_edit' post.id %}">
+        Редактировать
+    </a>
+  {% include 'includes/comment.html' %}
+  </article>
+</div> 
+  {% include 'includes/paginator.html' %}
+{% endblock%} 
