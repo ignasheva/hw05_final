@@ -122,7 +122,7 @@ def post_edit(request, post_id):
         'is_edit': True,
         'form': form,
         'post': post,
-        }
+    }
     return render(request, template, context)
 
 
