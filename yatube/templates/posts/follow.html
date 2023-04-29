@@ -4,7 +4,6 @@
 {% include 'includes/switcher.html' %}
 {% load cache %}
 {% cache 20 index_page %}
-<!-- класс py-5 создает отступы сверху и снизу блока --> 
 <div class="container py-5">      
   <h1>Последние обновления на сайте</h1>
  {% for post in page_obj %} 
@@ -21,7 +20,6 @@
   <p> {{ post.text }} </p>
   <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
 </article>       
-  {% comment %} {% include 'includes/article.html '%}      {% endcomment %}
     {% if post.group %} 
       <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a> 
     {% endif %} 
